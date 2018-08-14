@@ -1,0 +1,69 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v2.json",
+
+  "description": "Obesity",
+
+  "title": {
+    "text": "Obesity",
+    "anchor": "start"}, 
+
+  "data": {
+    "url": "https://raw.githubusercontent.com/Multibivbov/Econ/master/Obesity.csv"
+    },
+
+  "config":{
+    "background": "#FAFAFA"
+  },
+
+  "height": 500,
+  "width": 500,
+
+  "mark": {    
+    "type": "point",    
+    "opacity": "1",
+    "XYZinterpolate": "", 
+    "color": "red", 
+    "size":"250",
+    
+    "XYZpoint": {
+      "color": "black",
+      "size": "50"}
+  },
+
+  
+
+    "encoding": {
+
+    "x": {
+      "field": "Death Rate", 
+      "type": "quantitative",
+      "axis": {"title": "Annual deaths per 100,000 people"}
+      },
+
+    "y": {
+      "field": "Obesity ", 
+      "type": "quantitative",
+      "axis": {"title": "Obesity "},
+      "scale": {"domain": [0, 50]}
+      },
+
+    "color": {
+      "field": "Division", 
+      "type": "nominal"
+            },
+
+    "size": {
+      "field": "Imprisonment rates", 
+      "type": "quantitative"
+      },
+    
+    
+       
+    "tooltip": [
+      {"field": "State", "type": "ordinal", "format": "%Y"},
+      {"field": "Death Rate", "type": "ordinal"},
+      {"field": "Obesity ", "type": "quantitative", "format": "$,"}
+    ]        
+
+  }
+}
