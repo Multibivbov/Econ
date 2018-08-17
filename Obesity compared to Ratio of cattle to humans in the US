@@ -1,0 +1,27 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v2.json",
+  "description": "A scatterplot showing horsepower and miles per gallons that opens a Google search for the car that you click on.",
+  "data": {"url": "https://raw.githubusercontent.com/Multibivbov/Econ/master/Cattle%20to%20Human%20ratio%20and%20Obesity.csv"},
+  
+  "height":500,
+  "width":500, 
+  "mark": "point",
+  "transform": [{
+    "calculate": "'https://www.google.com/search?q=' + datum.Name", "as": "url"
+  }],
+  "encoding": {
+    "x": {"field": "Human to Cattle Ratio ", "type": "quantitative","scale":{"domain":[-1,5]}},
+    "y": {"field": "Obesity ", "type": "quantitative","scale":{"domain":[20,45]}},
+    "color": {"field": "Division", "type": "nominal","scale":{"range":["red","blue","black","green"]}},
+         
+
+    "tooltip": [ {"field": "State", "type": "ordinal", "format": "%Y"},
+
+      {"field": "Obesity ", "type": "ordinal"},
+
+        {"field": "Human to Cattle Ratio", "type": "quantitative", "format": "$"}],
+
+     
+    "href": {"field": "url", "type": "nominal"}
+  }
+}
